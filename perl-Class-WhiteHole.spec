@@ -15,7 +15,6 @@ Source:         http://www.cpan.org/modules/by-module/Class/%{module}-%{version}
 BuildRequires:	perl-devel
 %endif
 BuildArch:	    noarch
-BuildRoot:	    %{_tmppath}/%{name}-%{version}
 
 %description
 Its possible to accidentally inherit an AUTOLOAD method.  Often this
