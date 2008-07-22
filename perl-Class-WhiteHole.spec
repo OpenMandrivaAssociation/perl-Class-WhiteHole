@@ -1,7 +1,7 @@
 %define module	Class-WhiteHole
 %define name	perl-%{module}
 %define version 0.04
-%define release %mkrel 4
+%define release %mkrel 6
 
 Name:		    %{name}
 Version:	    %{version}
