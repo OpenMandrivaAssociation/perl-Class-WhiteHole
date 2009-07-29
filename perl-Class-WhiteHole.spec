@@ -1,21 +1,21 @@
-%define module	Class-WhiteHole
-%define name	perl-%{module}
-%define version 0.04
-%define release %mkrel 6
+%define upstream_name	 Class-WhiteHole
+%define upstream_version 0.04
 
-Name:		    %{name}
-Version:	    %{version}
-Release:	    %{release}
-Summary:	    Base class to treat unhandled method calls as errors
-License:	    GPL or Artistic
-group:		    Development/Perl
-Url:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/Class/%{module}-%{version}.tar.bz2
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:	Base class to treat unhandled method calls as errors
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Class/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
 BuildArch:	    noarch
-BuildRoot:	    %{_tmppath}/%{name}-%{version}
+BuildRoot:	    %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Its possible to accidentally inherit an AUTOLOAD method.  Often this
@@ -28,7 +28,7 @@ case, inherit from Class::WhiteHole.  All unhandled methods will
 produce normal Perl error messages.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -49,4 +49,3 @@ rm -rf %{buildroot}
 %doc Changes
 %{perl_vendorlib}/Class
 %{_mandir}/*/*
-
